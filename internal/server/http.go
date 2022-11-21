@@ -62,6 +62,8 @@ func (s *httpServer) handleProduce(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+}
+
 func (s *httpServer) handleConsume(w http.ResponseWriter, r *http.Request) {
 	var req ConsumeRequest
 	err := json.NewDecoder(r.Body).Decode(&req)
@@ -84,5 +86,4 @@ func (s *httpServer) handleConsume(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-}
 }
